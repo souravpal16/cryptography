@@ -1,0 +1,35 @@
+{% extends 'encrypt.html' %}
+
+{% block form %}
+  		<div class="container">
+<form method="post">
+    {% csrf_token %}
+   
+    <div class="form-group">
+      <label for="id_message">Message</label>
+      <textarea class="form-control" id="id_message" name="message" rows="5">{{message}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary m-2">Encrypt</button>
+  </form>
+</div>
+{% endblock %}
+{% block encrypted_deets %}
+	
+	<div class="container">
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_message">
+      Encrypted Message</label>
+      <textarea class="form-control" id="id_message" name="encrypted_message"  rows="3">{{encrypted_message}}</textarea>
+    </div>
+     <div class="form-group">
+      <label for="id_subject">Receiver's Email</label>
+      <input type="text" class="form-control" placeholder="Enter Email" id="id_subject"  name="email">
+    </div>
+    <button type="submit" class="btn btn-primary m-2">Send</button>
+  </form>
+</div>
+
+
+{% endblock %}
