@@ -8,7 +8,6 @@ from substitution import SubstitutionCipher
 
 import os
 list_dir = os.listdir("../website/data/")
-print(list_dir[0][:-4])
 
 key = []
 decrypted_message = ''
@@ -18,7 +17,9 @@ for file in list_dir:
         f = open("../website/data/" + file)
         key = f.read()
         f.close()
+        os.remove("../website/data/" + file)
 
+list_dir = os.listdir("../website/data/")        
 for file in list_dir:
     algo = file[:-4]
 
