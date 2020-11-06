@@ -22,7 +22,7 @@ def encrypted(request):
 		subject = 'text alert'
 		email_from = 'souravpal.4916@gmail.com'
 		email = request.POST['email']
-		message_to_be_sent = encrypted_message + '\nalgo: {}'.format(algo)
+		message_to_be_sent ='Encrypted message: ' encrypted_message + '\nalgo: {}'.format(algo)
 		send_mail(subject, message_to_be_sent, email_from, [email])
 	return render(request, 'encrypted.html', context)
 
